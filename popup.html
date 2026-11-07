@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1 data-t="FONT/FX">FONT/FX</h1>
+    <label class="switch" title="Turn everything on/off">
+      <input type="checkbox" id="enabled">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="theme">Theme</button>
+    <button data-tab="effects">Effects</button>
+    <button data-tab="fonts">Fonts</button>
+  </nav>
+
+  <main id="controls">
+    <!-- ================= THEME ================= -->
+    <div class="pane" data-pane="theme">
+      <section>
+        <h2>// Background</h2>
+        <div class="bases" id="bases">
+          <button data-base="off"><span class="b-sw" style="background:#d97757"></span>Claude</button>
+          <button data-base="dark"><span class="b-sw" style="background:#0b0b12"></span>Dark</button>
+          <button data-base="black"><span class="b-sw" style="background:#000"></span>Black</button>
+          <button data-base="light"><span class="b-sw" style="background:#f5f6f9"></span>Light</button>
+          <button data-base="paper"><span class="b-sw" style="background:#f6f0e4"></span>Paper</button>
+          <button data-base="custom"><span class="b-sw" id="customBgSw"></span>Custom</button>
+        </div>
+        <div class="custom" id="customBgBox">
+          <label>Background <input type="color" id="customBg"></label>
+          <small id="customBgNote"></small>
+        </div>
+      </section>
+
+      <section class="themeOnly">
+        <h2>// Colors</h2>
+        <div class="swatches" id="palettes"></div>
+        <div class="custom" id="customBox">
+          <label>Accent <input type="color" id="customA"></label>
+          <label>Glitch / links <input type="color" id="customB"></label>
+          <button id="swap" title="Swap the two colors">⇄</button>
+        </div>
+        <label class="row"><input type="checkbox" id="themeFonts"> Futuristic fonts</label>
+      </section>
+    </div>
+
+    <!-- ================= EFFECTS ================= -->
+    <div class="pane themeOnly" data-pane="effects">
+      <section>
+        <h2>// Effects</h2>
+        <div class="toggles">
+          <label><input type="checkbox" id="fxGlitch"> Glitch</label>
+          <label><input type="checkbox" id="fxGrid"> Grid</label>
+          <label><input type="checkbox" id="fxScan"> Scanlines</label>
+          <label><input type="checkbox" id="fxSharp"> Sharp corners</label>
+          <label><input type="checkbox" id="fxMotion"> Animations</label>
+        </div>
+        <div class="seg" id="glitchSpeed">
+          <span>Speed</span>
+          <button data-v="calm">Calm</button>
+          <button data-v="normal">Normal</button>
+          <button data-v="wild">Wild</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>// Ambient</h2>
+        <div class="seg wrap" id="ambient">
+          <button data-v="off">Off</button>
+          <button data-v="aurora" title="Slow drifting color clouds">Aurora</button>
+          <button data-v="particles" title="Soft floating lights">Particles</button>
+          <button data-v="breathe" title="Edges glow in a slow 4s in / 6s out breathing rhythm">Breathe</button>
+          <button data-v="waves" title="Gentle flowing lines">Waves</button>
+        </div>
+        <div id="ambientBox">
+          <label class="field">
+            <span>Intensity <output id="ambientLevelOut"></output></span>
+            <input type="range" id="ambientLevel" min="5" max="100" step="5">
+          </label>
+          <label class="field">
+            <span>Speed <output id="ambientSpeedOut"></output></span>
+            <input type="range" id="ambientSpeed" min="0.25" max="2" step="0.25">
+          </label>
+          <label class="row"><input type="checkbox" id="ambientFocus"> Focus mode <small>(keep the reading area clear)</small></label>
+          <label class="row"><input type="checkbox" id="ambientClearInput"> Keep prompt box clear</label>
+        </div>
+      </section>
+      <p class="hint" id="effectsHint">Pick a background on the Theme tab to use effects.</p>
+    </div>
+
+    <!-- ================= FONTS ================= -->
+    <div class="pane" data-pane="fonts">
+      <section>
+        <h2>// Fonts</h2>
+        <label class="field">
+          <span>Text font</span>
+          <input type="search" id="fontFilter" placeholder="Search fonts…">
+          <select id="font" size="4"></select>
+        </label>
+        <label class="field">
+          <span>Code font</span>
+          <select id="codeFont"></select>
+        </label>
+        <label class="field">
+          <span>Text size <output id="sizeOut"></output></span>
+          <input type="range" id="size" min="75" max="150" step="5">
+        </label>
+        <label class="field">
+          <span>Line spacing <output id="lineOut"></output></span>
+          <input type="range" id="lineHeight" min="0" max="2.4" step="0.1">
+        </label>
+        <div class="preview" id="preview">
+          The quick brown fox jumps over the lazy dog. Ďakujem, Claude!
+          <code>const answer = 42;</code>
+        </div>
+      </section>
+    </div>
+
+    <button id="reset" class="wide">Reset everything</button>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

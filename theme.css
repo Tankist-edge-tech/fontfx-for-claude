@@ -1,0 +1,422 @@
+/* ==========================================================================
+   Theme for claude.ai. Everything is scoped under html.cx-on, so with the
+   theme off this file does nothing. All colors come from variables that
+   content.js sets for the chosen base (dark/black/light/paper) and palette:
+     --cx-a / --cx-b    accent + partner color, "H S% L%"
+     --cx-ai / --cx-bi  same colors tuned to be readable as text on the base
+   ========================================================================== */
+
+html.cx-on {
+  --cx-label-font: "CX Mono", ui-monospace, monospace;
+  --cx-head-font: inherit;
+  --cx-text-font: inherit;
+  color-scheme: dark !important;
+}
+html.cx-on.cx-light { color-scheme: light !important; }
+html.cx-on.cx-tfonts {
+  --cx-head-font: "CX Display", "CX Text", sans-serif;
+  --cx-text-font: "CX Text", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---------- 1. Claude's own color variables, repainted ------------------ */
+html.cx-on, html.cx-on body, html.cx-on [data-mode], html.cx-on .dark, html.cx-on [data-theme] {
+  --bg-000: var(--cx-s0) !important;
+  --bg-100: var(--cx-bg) !important;
+  --bg-200: var(--cx-bg2) !important;
+  --bg-300: var(--cx-s1) !important;
+  --bg-400: var(--cx-s2) !important;
+  --bg-500: var(--cx-s3) !important;
+  --text-000: var(--cx-t0) !important;
+  --text-100: var(--cx-t1) !important;
+  --text-200: var(--cx-t2) !important;
+  --text-300: var(--cx-t3) !important;
+  --text-400: var(--cx-t4) !important;
+  --text-500: var(--cx-t5) !important;
+  --border-100: var(--cx-bd1) !important;
+  --border-200: var(--cx-bd2) !important;
+  --border-300: var(--cx-bd3) !important;
+  --border-400: var(--cx-bd4) !important;
+  --accent-brand: var(--cx-a) !important;
+  --accent-main-000: var(--cx-ai) !important;
+  --accent-main-100: var(--cx-a) !important;
+  --accent-main-200: var(--cx-ai) !important;
+  --accent-main-900: var(--cx-s1) !important;
+  --accent-secondary-000: var(--cx-bi) !important;
+  --accent-secondary-100: var(--cx-b) !important;
+  --accent-secondary-200: var(--cx-bi) !important;
+  --accent-secondary-900: var(--cx-s1) !important;
+  --oncolor-100: var(--cx-on) !important;
+}
+
+/* Claude's current color system (cds tokens). These drive most of the page. */
+html.cx-on, html.cx-on body, html.cx-on .cds-root, html.cx-on [data-mode], html.cx-on [data-cds-theme], html.cx-on [data-theme] {
+  --cds-page-bg: hsl(var(--cx-sf1)) !important;
+  --cds-surface-0: hsl(var(--cx-sf0)) !important;
+  --cds-surface-1: hsl(var(--cx-sf1)) !important;
+  --cds-surface-2: hsl(var(--cx-sf2)) !important;
+  --cds-surface-3: hsl(var(--cx-sf3)) !important;
+  --cds-surface-panel: hsl(var(--cx-sf2)) !important;
+  --cds-surface-popover: hsl(var(--cx-pop)) !important;
+  --cds-bg-editor-canvas: hsl(var(--cx-sf1)) !important;
+
+  --cds-text-primary: hsl(var(--cx-t1)) !important;
+  --cds-text-secondary: hsl(var(--cx-t3)) !important;
+  --cds-text-stays-secondary: hsl(var(--cx-t3)) !important;
+  --cds-text-muted: hsl(var(--cx-t4)) !important;
+  --cds-text-disabled: hsl(var(--cx-t5)) !important;
+  --cds-text-button-disabled: hsl(var(--cx-t5)) !important;
+  --cds-text-accent: hsl(var(--cx-ai)) !important;
+
+  --cds-border: hsl(var(--cx-t1) / 0.08) !important;
+  --cds-border-line: hsl(var(--cx-t1) / 0.14) !important;
+  --cds-border-strong: hsl(var(--cx-t1) / 0.22) !important;
+  --cds-border-stronger: hsl(var(--cx-t1) / 0.4) !important;
+  --cds-border-accent: hsl(var(--cx-a) / 0.6) !important;
+
+  --cds-fill-card: hsl(var(--cx-t1) / 0.03) !important;
+  --cds-fill-field: hsl(var(--cx-t1) / 0.04) !important;
+  --cds-fill-field-ring: hsl(var(--cx-t1) / 0.1) !important;
+  --cds-fill-ghost-hover: hsl(var(--cx-t1) / 0.07) !important;
+  --cds-fill-ghost-selected: hsl(var(--cx-a) / 0.16) !important;
+  --cds-fill-button-ghost-hover: hsl(var(--cx-t1) / 0.07) !important;
+  --cds-fill-button-layer: hsl(var(--cx-t1) / 0.07) !important;
+  --cds-fill-secondary: hsl(var(--cx-t1) / 0.12) !important;
+  --cds-fill-secondary-hover: hsl(var(--cx-t1) / 0.2) !important;
+  --cds-fill-secondary-layer: hsl(var(--cx-t1) / 0.07) !important;
+  --cds-fill-control: hsl(var(--cx-t1) / 0.1) !important;
+  --cds-fill-control-hover: hsl(var(--cx-t1) / 0.16) !important;
+  --cds-fill-disabled: hsl(var(--cx-t1) / 0.05) !important;
+  --cds-fill-primary: hsl(var(--cx-t1)) !important;
+  --cds-fill-primary-hover: hsl(var(--cx-t2)) !important;
+  --cds-on-primary: hsl(var(--cx-sf1)) !important;
+  --cds-fill-accent: hsl(var(--cx-a)) !important;
+  --cds-fill-accent-hover: hsl(var(--cx-ai)) !important;
+  --cds-on-accent: hsl(var(--cx-on)) !important;
+  --cds-fill-brand: hsl(var(--cx-a)) !important;
+  --cds-fill-brand-hover: hsl(var(--cx-ai)) !important;
+  --cds-on-brand: hsl(var(--cx-on)) !important;
+  --cds-bg-accent: hsl(var(--cx-a) / 0.15) !important;
+}
+
+
+/* Claude's sidebar / composer / caption colors (also part of the current design system) */
+html.cx-on, html.cx-on body, html.cx-on .cds-root, html.cx-on [data-mode], html.cx-on [data-cds-theme],
+html.cx-on :is(.dframe-root, .dframe-sidebar, aside) {
+  --cds-fizzy-lake-color-sidebar: hsl(var(--cx-bg2)) !important;
+  --cds-fizzy-lake-color-composer-ring: hsl(var(--cx-t1) / 0.1) !important;
+  --cds-fizzy-lake-color-seam: hsl(var(--cx-t1) / 0.1) !important;
+  --cds-fizzy-lake-color-banner-line: hsl(var(--cx-t1) / 0.2) !important;
+  --cds-fizzy-lake-color-message-line: hsl(var(--cx-t1) / 0.1) !important;
+  --cds-fizzy-lake-color-menu-line: hsl(var(--cx-t1) / 0.1) !important;
+  --cds-fizzy-lake-color-badge-line: hsl(var(--cx-t1) / 0.25) !important;
+  --cds-fizzy-lake-color-selected-hover: hsl(var(--cx-t1) / 0.2) !important;
+  --cds-fizzy-lake-color-tertiary: hsl(var(--cx-t4)) !important;
+  --cds-fizzy-lake-color-icon-only-disabled: hsl(var(--cx-t5)) !important;
+  --cds-fizzy-lake-color-secondary: hsl(var(--cx-t3)) !important;
+  --cds-fizzy-lake-color-solid-primary: hsl(var(--cx-t1)) !important;
+  --cds-fizzy-lake-color-solid-secondary: hsl(var(--cx-t2)) !important;
+  --cds-fizzy-lake-color-solid-muted: hsl(var(--cx-t4)) !important;
+  --cds-fizzy-lake-color-placeholder: hsl(var(--cx-t4)) !important;
+  --cds-fizzy-lake-color-card-hover: hsl(var(--cx-t1) / 0.05) !important;
+  --cds-fizzy-lake-color-plain-muted: hsl(var(--cx-t3)) !important;
+  --cds-fizzy-lake-color-control-ink: hsl(var(--cx-t1)) !important;
+  --cds-fizzy-lake-color-plain-secondary: hsl(var(--cx-t2)) !important;
+  --clint-surface-warm: hsl(var(--cx-s1)) !important;
+  --muted-as-secondary: hsl(var(--cx-t3)) !important;
+  --cds-shortcut-cap-ink: hsl(var(--cx-t4)) !important;
+  --df-sidebar-icon-rest: hsl(var(--cx-t3)) !important;
+  --df-sidebar-muted: hsl(var(--cx-t3)) !important;
+  --df-sidebar-bg: hsl(var(--cx-bg2)) !important;
+  --df-web-sidebar-bg: hsl(var(--cx-bg2)) !important;
+}
+html.cx-on .dframe-sidebar { background: hsl(var(--cx-bg2)) !important; }
+
+html.cx-on body {
+  background-color: hsl(var(--cx-bg)) !important;
+  color: hsl(var(--cx-t1)) !important;
+}
+
+/* ---------- 2. Typography ---------------------------------------------- */
+html.cx-on.cx-tfonts:not(.cx-userfont) body *:not(pre):not(code):not(kbd):not(samp):not(pre *):not(code *):not(.katex):not(.katex *),
+html.cx-on.cx-tfonts:not(.cx-userfont) :is(input, textarea, button, [contenteditable="true"], [contenteditable="true"] *) {
+  font-family: var(--cx-text-font) !important;
+}
+html.cx-on.cx-tfonts:not(.cx-usercode) :is(pre, code, kbd, samp, pre *, code *) {
+  font-family: var(--cx-label-font) !important;
+}
+
+html.cx-on :is(.font-claude-response, .font-claude-message, .standard-markdown, .prose) :is(h1, h2, h3, h4) {
+  font-family: var(--cx-head-font) !important;
+  letter-spacing: 0.04em;
+  color: hsl(var(--cx-t0)) !important;
+  text-shadow: -1px 0 hsl(var(--cx-b) / calc(0.7 * var(--cx-glow))), 1px 0 hsl(var(--cx-a) / calc(0.7 * var(--cx-glow)));
+  position: relative;
+}
+html.cx-on.cx-tfonts :is(.font-claude-response, .font-claude-message, .standard-markdown, .prose) :is(h1, h2, h3, h4) {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700 !important;
+}
+html.cx-on :is(.font-claude-response, .font-claude-message, .standard-markdown, .prose) h2::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.4em;
+  background: linear-gradient(90deg, hsl(var(--cx-a)), hsl(var(--cx-b) / 0.4) 40%, transparent);
+}
+
+/* Big page titles (e.g. the greeting on a new chat): outline style */
+html.cx-on main h1:not(:is(.font-claude-response, .font-claude-message, .standard-markdown, .prose) h1),
+html.cx-on div.font-ui-serif.text-center > span.select-none {
+  font-family: var(--cx-head-font) !important;
+  letter-spacing: 0.05em;
+  color: transparent !important;
+  -webkit-text-stroke: 1px hsl(var(--cx-ai));
+  text-shadow: 0 0 18px hsl(var(--cx-a) / calc(0.35 * var(--cx-glow)));
+  position: relative;
+}
+html.cx-on.cx-tfonts main h1:not(:is(.font-claude-response, .font-claude-message, .standard-markdown, .prose) h1),
+html.cx-on.cx-tfonts div.font-ui-serif.text-center > span.select-none {
+  text-transform: uppercase;
+  font-weight: 900 !important;
+}
+
+/* ---------- 3. Message labels ("● CLAUDE" / "● YOU") ------------------- */
+html.cx-on :is(.font-claude-response, .font-claude-message, [data-testid="assistant-message"])::before,
+html.cx-on [data-is-streaming]:not([data-testid="assistant-message"]):not(:has(.font-claude-response, .font-claude-message, [data-testid="assistant-message"]))::before {
+  content: "\25CF  CLAUDE";
+  display: block;
+  font-family: var(--cx-label-font) !important;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: hsl(var(--cx-ai));
+  text-shadow: 0 0 8px hsl(var(--cx-a) / calc(0.8 * var(--cx-glow)));
+  margin-bottom: 0.6em;
+}
+html.cx-on [data-testid="user-message"]::before {
+  content: "\25CF  YOU";
+  display: block;
+  font-family: var(--cx-label-font) !important;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: hsl(var(--cx-t4));
+  margin-bottom: 0.45em;
+}
+
+/* User message: Claude's own bubble becomes see-through, and the frame goes
+   on the message itself (prevents a box inside a box). */
+html.cx-on :is(div, section):has(> [data-testid="user-message"]),
+html.cx-on :is(div, section):has(> * > [data-testid="user-message"]),
+html.cx-on :is(div, section):has(> * > * > [data-testid="user-message"]) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+html.cx-on [data-testid="user-message"] {
+  position: relative;
+  background: hsl(var(--cx-s0) / 0.92) !important;
+  border: 1px solid hsl(var(--cx-line)) !important;
+  padding: 10px 14px !important;
+}
+html.cx-on [data-testid="user-message"]::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    linear-gradient(hsl(var(--cx-a)), hsl(var(--cx-a))) top left / 10px 1px,
+    linear-gradient(hsl(var(--cx-a)), hsl(var(--cx-a))) top left / 1px 10px,
+    linear-gradient(hsl(var(--cx-a)), hsl(var(--cx-a))) bottom right / 10px 1px,
+    linear-gradient(hsl(var(--cx-a)), hsl(var(--cx-a))) bottom right / 1px 10px;
+  background-repeat: no-repeat;
+}
+
+/* Streaming reply: pulsing accent rail, set off to the left so it never touches the label dot */
+html.cx-on [data-is-streaming="true"] { position: relative; }
+html.cx-on [data-is-streaming="true"]::after {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  pointer-events: none;
+  background: hsl(var(--cx-a) / 0.9);
+  box-shadow: 0 0 10px hsl(var(--cx-a) / calc(0.7 * var(--cx-glow)));
+}
+html.cx-on.cx-motion [data-is-streaming="true"]::after { animation: cx-rail 1.2s ease-in-out infinite; }
+@keyframes cx-rail {
+  50% { background: hsl(var(--cx-b) / 0.9); box-shadow: 0 0 10px hsl(var(--cx-b) / calc(0.7 * var(--cx-glow))); }
+}
+
+/* ---------- 4. Code ---------------------------------------------------- */
+html.cx-on pre {
+  background: hsl(var(--cx-code)) !important;
+  border: 1px solid hsl(var(--cx-b) / 0.35) !important;
+  box-shadow: inset 0 0 24px hsl(var(--cx-b) / calc(0.06 * var(--cx-glow)));
+}
+html.cx-on :not(pre) > code {
+  color: hsl(var(--cx-bi)) !important;
+  background: hsl(var(--cx-b) / 0.08) !important;
+  border: 1px solid hsl(var(--cx-b) / 0.28) !important;
+}
+
+/* ---------- 5. Inputs, buttons, links ---------------------------------- */
+html.cx-on fieldset {
+  background: hsl(var(--cx-s0)) !important;
+  border-color: hsl(var(--cx-line)) !important;
+}
+html.cx-on fieldset:focus-within {
+  border-color: hsl(var(--cx-a) / 0.8) !important;
+  box-shadow: 0 0 0 1px hsl(var(--cx-a) / 0.4), 0 0 24px -4px hsl(var(--cx-a) / calc(0.45 * var(--cx-glow))) !important;
+}
+/* Prompt field text: always readable on the base (fixes white-on-white in Light/Paper) */
+html.cx-on :is(.ProseMirror, [contenteditable="true"], textarea, input:not([type="checkbox"]):not([type="radio"]):not([type="range"])) {
+  color: hsl(var(--cx-t1)) !important;
+  caret-color: hsl(var(--cx-ai)) !important;
+}
+html.cx-on :is(.ProseMirror, [contenteditable="true"]) * { color: inherit !important; }
+/* the frame around the prompt already glows on focus, so no extra outline inside it */
+html.cx-on fieldset :is(.ProseMirror, [contenteditable="true"], textarea):focus,
+html.cx-on fieldset :is(.ProseMirror, [contenteditable="true"], textarea):focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+html.cx-on .ProseMirror p.is-empty::before,
+html.cx-on ::placeholder {
+  color: hsl(var(--cx-t4)) !important;
+}
+html.cx-on button:hover:not(:disabled) {
+  text-shadow: 0 0 8px hsl(var(--cx-a) / calc(0.6 * var(--cx-glow)));
+}
+html.cx-on button[aria-label*="Send" i], html.cx-on button[type="submit"] {
+  background: transparent !important;
+  color: hsl(var(--cx-ai)) !important;
+  border: 1px solid hsl(var(--cx-a) / 0.8) !important;
+  box-shadow: 0 0 12px -2px hsl(var(--cx-a) / calc(0.6 * var(--cx-glow)));
+}
+html.cx-on :is(.standard-markdown, .prose, [data-testid="user-message"]) a:not([role="button"]) {
+  color: hsl(var(--cx-bi)) !important;
+  text-decoration-color: hsl(var(--cx-b) / 0.45) !important;
+}
+html.cx-on :is(.standard-markdown, .prose, [data-testid="user-message"]) a:not([role="button"]):hover {
+  text-shadow: 0 0 8px hsl(var(--cx-b) / calc(0.8 * var(--cx-glow)));
+}
+html.cx-on ::selection { background: hsl(var(--cx-a) / 0.4); color: hsl(var(--cx-t0)); }
+html.cx-on :focus-visible { outline: 1px solid hsl(var(--cx-b)) !important; outline-offset: 2px; }
+
+html.cx-on nav, html.cx-on [data-testid="sidebar"] {
+  background: hsl(var(--cx-bg2)) !important;
+}
+html.cx-on [data-testid="sidebar"] { box-shadow: 1px 0 0 hsl(var(--cx-a) / 0.2); }
+html.cx-on * { scrollbar-width: thin; scrollbar-color: hsl(var(--cx-a) / 0.5) transparent; }
+
+/* ---------- 6. Sharp corners (circles stay circles) ------------------- */
+html.cx-on.cx-sharp *:not(.rounded-full):not([class*="rounded-full"]):not(svg *) {
+  border-radius: 0 !important;
+}
+
+/* ---------- 7. Grid, scanlines ---------------------------------------- */
+html.cx-on.cx-grid body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  background-image:
+    linear-gradient(hsl(var(--cx-a) / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--cx-a) / 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse at center, transparent 35%, #000 100%);
+  mask-image: radial-gradient(ellipse at center, transparent 35%, #000 100%);
+}
+html.cx-on.cx-scan body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483001;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, rgb(0 0 0 / var(--cx-scan)) 2px 3px);
+  mix-blend-mode: multiply;
+}
+html.cx-on.cx-scan.cx-motion body::after { animation: cx-flicker 6s infinite steps(1); }
+@keyframes cx-flicker { 0%, 96%, 100% { opacity: 1; } 97% { opacity: 0.6; } 98% { opacity: 1; } 99% { opacity: 0.75; } }
+
+/* ---------- 8. Ambient background canvas (drawn by content.js) -------- */
+#cx-ambient {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147482990;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.6s;
+}
+html.cx-light #cx-ambient { mix-blend-mode: multiply; }
+#cx-ambient.cx-focus {
+  -webkit-mask-image: radial-gradient(ellipse 34% 48% at 50% 50%, transparent 0%, rgb(0 0 0 / 0.25) 55%, #000 100%);
+  mask-image: radial-gradient(ellipse 34% 48% at 50% 50%, transparent 0%, rgb(0 0 0 / 0.25) 55%, #000 100%);
+}
+
+/* ---------- 9. Glitch effects ----------------------------------------- */
+html.cx-on.cx-glitch [data-cx]::before,
+html.cx-on.cx-glitch [data-cx]::after {
+  content: attr(data-cx);
+  position: absolute;
+  left: 0; top: 0; width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+html.cx-on.cx-glitch [data-cx]::before { color: hsl(var(--cx-b)); clip-path: inset(0 0 58% 0); }
+html.cx-on.cx-glitch [data-cx]::after  { color: hsl(var(--cx-a)); clip-path: inset(52% 0 0 0); }
+html.cx-on.cx-glitch.cx-motion [data-cx]::before { animation: cx-g1 var(--cx-gspeed, 4s) infinite steps(1); }
+html.cx-on.cx-glitch.cx-motion [data-cx]::after  { animation: cx-g2 var(--cx-gspeed, 4s) infinite steps(1); }
+html.cx-on.cx-glitch.cx-motion [data-cx] { animation: cx-skew var(--cx-gspeed, 4s) infinite steps(1); }
+html.cx-on.cx-glitch :is(.font-claude-response, .font-claude-message, .standard-markdown, .prose) h2[data-cx]::after {
+  content: ""; position: static; opacity: 1; animation: none; color: inherit;
+}
+
+@keyframes cx-g1 {
+  0%, 88%, 100% { opacity: 0; transform: none; }
+  89% { opacity: 1; transform: translate(-4px, -1px); clip-path: inset(0 0 70% 0); }
+  91% { opacity: 1; transform: translate(3px, 0);     clip-path: inset(30% 0 40% 0); }
+  93% { opacity: 1; transform: translate(-2px, 1px);  clip-path: inset(10% 0 60% 0); }
+  95% { opacity: 0; }
+}
+@keyframes cx-g2 {
+  0%, 89%, 100% { opacity: 0; transform: none; }
+  90% { opacity: 1; transform: translate(4px, 1px);   clip-path: inset(60% 0 10% 0); }
+  92% { opacity: 1; transform: translate(-3px, 0);    clip-path: inset(45% 0 30% 0); }
+  94% { opacity: 1; transform: translate(2px, -1px);  clip-path: inset(75% 0 0 0); }
+  96% { opacity: 0; }
+}
+@keyframes cx-skew {
+  0%, 89%, 100% { transform: none; }
+  90% { transform: skewX(-6deg); }
+  92% { transform: skewX(4deg) translateX(1px); }
+  94% { transform: none; }
+}
+
+html.cx-on.cx-glitch.cx-motion :is(.font-claude-response, .font-claude-message, [data-testid="assistant-message"]) {
+  animation: cx-in 0.55s steps(6) 1;
+}
+@keyframes cx-in {
+  0%   { opacity: 0; clip-path: inset(0 0 85% 0); transform: translateX(-6px); filter: drop-shadow(3px 0 hsl(var(--cx-a))) drop-shadow(-3px 0 hsl(var(--cx-b))); }
+  35%  { opacity: 1; clip-path: inset(40% 0 20% 0); transform: translateX(4px); }
+  70%  { clip-path: inset(0 0 0 0); transform: translateX(-2px); filter: drop-shadow(1px 0 hsl(var(--cx-a))) drop-shadow(-1px 0 hsl(var(--cx-b))); }
+  100% { opacity: 1; clip-path: none; transform: none; filter: none; }
+}
+
+html.cx-on.cx-motion :is(.font-claude-response, .font-claude-message, [data-testid="assistant-message"])::before {
+  animation: cx-dot 2.4s ease-in-out infinite;
+}
+@keyframes cx-dot { 50% { opacity: 0.55; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html.cx-on *, html.cx-on *::before, html.cx-on *::after { animation: none !important; }
+}
