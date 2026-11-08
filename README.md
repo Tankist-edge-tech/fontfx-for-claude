@@ -8,7 +8,7 @@
 
 <br>
 
-<img src="docs/screenshots/hq.png" width="100%" alt="HQ preview">
+<img src="docs/screenshots/hq.png" width="100%" alt="HQ">
 
 <img src="docs/hero.gif" alt="FONT/FX for Claude cycling through different themes" width="100%">
 
